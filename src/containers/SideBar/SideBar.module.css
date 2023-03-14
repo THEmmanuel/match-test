@@ -7,3 +7,8 @@
 	flex-direction: column;
 	gap: 10px;
 }
+
+.IconButton{
+	background: none;
+	border: none;
+}
