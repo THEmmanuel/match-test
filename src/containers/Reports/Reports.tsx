@@ -4,7 +4,7 @@ import style from './Reports.module.css';
 const Reports = () => {
 	return (
 		<div>
-			Reports
+			<span>All Projects | All Gateways</span>
 		</div>
 	)
 }

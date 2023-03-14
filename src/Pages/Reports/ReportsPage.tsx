@@ -14,6 +14,9 @@ const ReportsPage = () => {
 	const [projects, setProjects] = useState({});
 	const [gateways, setGateways] = useState({})
 
+	const [selectedProject, setSelectedProject] = useState('')
+	const [selectedGateway, setSelectedGateway] = useState('')
+
 	const getProjects = () => {
 		axios.get(`${API_URL}/projects`)
 			.then(res => setProjects(res.data.data))
@@ -22,6 +25,14 @@ const ReportsPage = () => {
 	const getGateways = () => {
 		axios.get(`${API_URL}/gateways`)
 			.then(res => setGateways(res.data.data))
+	}
+
+	const handleProjectChange = (selectedValue: string) => {
+		setSelectedProject(selectedValue)
+	}
+
+	const handleGatewayChange = (selectedValue: string) => {
+		setSelectedGateway(selectedValue)
 	}
 
 	useEffect(() => {
@@ -42,11 +53,14 @@ const ReportsPage = () => {
 				<div className={style.ReportsFilterWrapper}>
 					<Dropdown
 						type='projects'
-						values={projects} />
+						values={projects}
+						onSelect={handleProjectChange}
+					/>
 
 					<Dropdown
 						type='gateway'
-						values = {gateways}
+						values={gateways}
+						onSelect = {handleGatewayChange}
 					/>
 
 					<button className={style.ReportsGenerateButton}>
