@@ -11,7 +11,7 @@ const ReportsPage = () => {
 				</div>
 				
 				<div className={style.ReportsFilterWrapper}>
-					<span>Input</span>
+					<select>Input</select>
 					<span>Input</span>
 					<span>Input</span>
 					<span>Input</span>
