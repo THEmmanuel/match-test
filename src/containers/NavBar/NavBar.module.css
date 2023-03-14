@@ -1,0 +1,4 @@
+.NavBarWrapper{
+	display: flex;
+	justify-content: space-between;
+}

@@ -9,8 +9,11 @@ function App() {
 	return (
 		<div className="App">
 			<NavBar />
-			<SideBar/>
-			match test
+
+			<div>
+				<SideBar />
+				match test
+			</div>
 		</div>
 	);
 }
