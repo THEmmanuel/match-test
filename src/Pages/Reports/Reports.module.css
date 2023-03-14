@@ -16,11 +16,31 @@
 	gap: 40px;
 }
 
-.ReportsGenerateButton{
+.ReportsGenerateButton {
 	background-color: #005B96;
 	color: #FFFFFF;
 	border: none;
 	border-radius: 5px;
 	height: fit-content;
 	padding: 10px;
+}
+
+.ReportsHeading {
+	display: inline;
+	margin: 0;
+	color: #011F4B;
+	font-weight: 700;
+}
+
+.ReportsText {
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 20px;
+	color: #7E8299;
+}
+
+.ReportsInfo{
+	display: flex;
+	flex-direction: column;
+	text-align: left;
 }

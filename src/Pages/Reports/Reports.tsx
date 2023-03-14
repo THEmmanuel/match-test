@@ -9,8 +9,8 @@ const ReportsPage = () => {
 		<section className={style.ReportsPage}>
 			<div className={style.ReportsTopWrapper}>
 				<div className={style.ReportsInfo}>
-					<h2>Reports</h2>
-					<span>Easily generate a report of your transactions</span>
+					<h2 className={style.ReportsHeading}>Reports</h2>
+					<span className={style.ReportsText}>Easily generate a report of your transactions</span>
 				</div>
 				
 				<div className={style.ReportsFilterWrapper}>
