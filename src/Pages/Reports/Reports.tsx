@@ -18,7 +18,9 @@ const ReportsPage = () => {
 					<span>Input</span>
 					<span>Input</span>
 					<span>Input</span>
-					<span>Input</span>
+					<button className={style.ReportsGenerateButton}>
+						Generate Report
+					</button>
 				</div>
 			</div>
 		</section>
