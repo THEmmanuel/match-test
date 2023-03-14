@@ -1,0 +1,8 @@
+.Dropdown{
+	background-color: #1BC5BD;
+	color: #FFFFFF; 
+	border: none;
+	border-radius: 5px;
+	height: fit-content;
+	padding: 10px 15px 10px 10px;
+}

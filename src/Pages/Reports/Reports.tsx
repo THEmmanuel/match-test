@@ -1,6 +1,9 @@
 import React from "react";
 import style from './Reports.module.css';
 
+// Component imports
+import Dropdown from "../../components/Dropdown/Dropdown";
+
 const ReportsPage = () => {
 	return (
 		<section className={style.ReportsPage}>
@@ -11,7 +14,7 @@ const ReportsPage = () => {
 				</div>
 				
 				<div className={style.ReportsFilterWrapper}>
-					<select>Input</select>
+					<Dropdown/>
 					<span>Input</span>
 					<span>Input</span>
 					<span>Input</span>
