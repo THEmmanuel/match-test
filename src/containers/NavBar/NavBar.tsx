@@ -3,7 +3,7 @@ import style from './NavBar.module.css'
 
 const NavBar = () => {
 	return (
-		<div>
+		<nav>
 			<div>
 				<span>logo</span>
 				<span>Nav button</span>
@@ -13,7 +13,7 @@ const NavBar = () => {
 				<span>UserIMAGE</span>
 				<span>User name</span>
 			</div>
-		</div>
+		</nav>
 	)
 }
 
