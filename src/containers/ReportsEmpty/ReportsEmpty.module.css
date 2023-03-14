@@ -1,0 +1,13 @@
+.ReportsEmpty {
+	display: flex;
+	flex-direction: column;
+	width: 480px;
+	margin: auto;
+	margin-top: 140px;
+}
+
+.ReportsEmptyText {
+	font-weight: 700;
+	color: #7E8299;
+	margin-bottom: 50px;
+}
