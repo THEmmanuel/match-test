@@ -1,9 +1,10 @@
 import React from "react";
-import style from './Reports.module.css';
+import style from './ReportsPage.module.css';
 
 // Component imports
 import Dropdown from "../../components/Dropdown/Dropdown";
 import ReportsEmpty from "../../containers/ReportsEmpty/ReportsEmpty";
+import Reports from "../../containers/Reports/Reports";
 
 const ReportsPage = () => {
 	return (
@@ -16,9 +17,9 @@ const ReportsPage = () => {
 
 				<div className={style.ReportsFilterWrapper}>
 					<Dropdown />
-					<span>Input</span>
-					<span>Input</span>
-					<span>Input</span>
+					<Dropdown />
+					<Dropdown />
+					<Dropdown />
 					<button className={style.ReportsGenerateButton}>
 						Generate Report
 					</button>
@@ -26,7 +27,8 @@ const ReportsPage = () => {
 			</div>
 
 			<div>
-				<ReportsEmpty/>
+				{/* <ReportsEmpty /> */}
+				<Reports/>
 			</div>
 		</section>
 	)

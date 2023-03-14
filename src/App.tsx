@@ -4,7 +4,7 @@ import './App.css';
 // Component imports
 import NavBar from './containers/NavBar/NavBar';
 import SideBar from './containers/SideBar/SideBar';
-import ReportsPage from './Pages/Reports/Reports';
+import ReportsPage from './Pages/Reports/ReportsPage';
 
 function App() {
 	return (
