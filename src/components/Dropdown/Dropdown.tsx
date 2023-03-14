@@ -1,22 +1,31 @@
 import React, { useState } from "react";
-import style from './Dropdown.module.css';
+import style from "./Dropdown.module.css";
 
-const Dropdown = (values: Array<String>) => {
-	const [selectedOption, setSelectedOption] = useState('');
+const Dropdown = (props: any) => {
+  const [selectedOption, setSelectedOption] = useState("");
 
-	const handleOptionChange = (event: { target: { value: any; }; }) => {
-		setSelectedOption(event.target.value);
-	};
+  const handleOptionChange = (event:any) => {
+    setSelectedOption(event.target.value);
+  };
 
-	return (
-		<select value={selectedOption} onChange={handleOptionChange} className={style.Dropdown}>
-			<option value="" disabled selected>Select an option</option>
+  const options = Object.values(props.values).map((value:any) => (
+    <option key={props.type === 'projects' ? value.projectId : value.gatewayId} value={value.name}>
+      {value.name}
+    </option>
+  ));
 
-			<option value="option1">Option 1</option>
-			<option value="option2">Option 2</option>
-			<option value="option3">Option 3</option>
-		</select>
-	);
-}
+  return (
+    <select
+      value={selectedOption}
+      onChange={handleOptionChange}
+      className={style.Dropdown}
+    >
+      <option value="" disabled defaultValue>
+        Select an option
+      </option>
+      {options}
+    </select>
+  );
+};
 
 export default Dropdown;
