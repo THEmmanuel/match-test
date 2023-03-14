@@ -1,14 +1,10 @@
 .SideBar{
 	position: absolute;
+	margin-left: 35px;
 }
 
 .SideBarIconsWrapper{
 	display: flex;
 	flex-direction: column;
-	gap: 10px;
-}
-
-.IconButton{
-	background: none;
-	border: none;
+	gap: 24px;
 }

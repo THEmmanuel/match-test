@@ -1,13 +1,19 @@
 import React from "react";
 import style from './NavBar.module.css'
 
+// Icon imports
+import logo from '../../assets/b-color 1.svg';
+import navBtn from '../../assets/navToggleIcon.svg'
+
 const NavBar = () => {
 	return (
 		<nav className={style.NavBar}>
 			<div className={style.NavBarWrapper}>
 				<div className={style.NavLogoWrapper}>
-					<span>logo</span>
-					<span>Nav button</span>
+					<img src={logo} alt="" />
+					<button className='IconButton'>
+						<img src={navBtn} alt="" />
+					</button>
 				</div>
 
 				<div className={style.UserInfoWrapper}>

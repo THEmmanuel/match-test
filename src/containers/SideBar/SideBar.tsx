@@ -13,23 +13,23 @@ const SideBar = () => {
 	return (
 		<div className={style.SideBar}>
 			<div className={style.SideBarIconsWrapper}>
-				<button className={style.IconButton}>
+				<button className = 'IconButton'>
 					<img src={icon1} alt="" />
 				</button>
 
-				<button className={style.IconButton}>
+				<button className = 'IconButton'>
 					<img src={icon2} alt="" />
 				</button>
 
-				<button className={style.IconButton}>
+				<button className = 'IconButton'>
 					<img src={icon3} alt="" />
 				</button>
 
-				<button className={style.IconButton}>
+				<button className = 'IconButton'>
 					<img src={chartIcon} alt="" />
 				</button>
 
-				<button className={style.IconButton}>
+				<button className = 'IconButton'>
 					<img src={powerIcon} alt="" />
 				</button>
 			</div>
