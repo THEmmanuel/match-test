@@ -5,13 +5,13 @@ const NavBar = () => {
 	return (
 		<nav className={style.NavBar}>
 			<div className={style.NavBarWrapper}>
-				<div>
+				<div className={style.NavLogoWrapper}>
 					<span>logo</span>
 					<span>Nav button</span>
 				</div>
 
-				<div>
-					<span>UserIMAGE</span>
+				<div className={style.UserInfoWrapper}>
+					<span>JD</span>
 					<span>User name</span>
 				</div>
 			</div>

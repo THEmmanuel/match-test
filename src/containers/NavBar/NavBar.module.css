@@ -1,4 +1,21 @@
-.NavBarWrapper{
+.NavBar {
+	border-bottom: 2px solid #F3F6F9;
+}
+
+.NavBarWrapper {
 	display: flex;
 	justify-content: space-between;
+	padding: 20px 35px;
+}
+
+.NavLogoWrapper {
+	display: flex;
+	flex-direction: row;
+	gap: 20px;
+}
+
+.UserInfoWrapper{
+	display: flex;
+	flex-direction: row;
+	gap: 20px;
 }
