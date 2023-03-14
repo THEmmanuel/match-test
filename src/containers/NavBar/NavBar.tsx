@@ -17,8 +17,8 @@ const NavBar = () => {
 				</div>
 
 				<div className={style.UserInfoWrapper}>
-					<span>JD</span>
-					<span>User name</span>
+					<span className={style.UserInitials}>JD</span>
+					<span className={style.Username}>User name</span>
 				</div>
 			</div>
 		</nav>
