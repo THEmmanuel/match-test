@@ -22,7 +22,7 @@ const Dropdown = (props: any) => {
 			onChange={handleOptionChange}
 			className={style.Dropdown}
 		>
-			<option value="" disabled defaultValue>
+			<option value="" disabled>
 				Select an option
 			</option>
 			{options}
