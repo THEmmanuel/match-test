@@ -33,25 +33,36 @@
 	margin-right: 24px;
 }
 
-.ReportsTableHeading{
+.ReportsTableHeading {
 	background-color: #FFF;
 }
 
-.ReportsWrapper{
+.ReportsWrapper {
 	display: flex;
 	flex-direction: column;
 	gap: 5px;
+	width: 100%;
 	background-color: #F1FAFE;
 }
 
-tbody{
+table{
+	font-weight: 400;
+	color: #011F4B;
+}
+
+table tr:nth-child(2n) {
+	background-color: #FFF;
+}
+
+tbody {
 	margin-top: 10px;
 }
 
-td{
-	padding: 20px;
+td {
+	padding: 5px 24px;
 }
 
-th{
+th {
 	padding: 5px 20px;
+
 }

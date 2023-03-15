@@ -5,13 +5,14 @@ const ReportsData = (props: any) => {
 	console.log(props.data)
 
 
+
 	const ProjectCard = (props: any) => {
 		const [showTable, setShowTable] = useState(false)
 		const tableToggleHandler = () => setShowTable(!showTable)
 
 		return (
 			<>
-				<div className={style.ProjectHeading} onClick = {tableToggleHandler}>
+				<div className={style.ProjectHeading} onClick={tableToggleHandler}>
 					<span className={style.ProjectName}>{props.projectName}</span>
 					<span className={style.ProjectAmount}>Total: {props.projectAmount}USD</span>
 				</div>
@@ -58,7 +59,7 @@ const ReportsData = (props: any) => {
 						<ProjectCard
 							projectName={key}
 							projectAmount={totalAmount}
-							value = {value}
+							value={value}
 						/>
 					</div>
 				);
