@@ -29,6 +29,11 @@ const Reports = (props: any) => {
 	}, {})
 	console.log(groupedDataByGateway, 'by gateway')
 
+	const filteredData = reportsData.filter(item => {
+		return item.projectId === props.selectedProject.projectId && item.gatewayId === props.selectedGateway.gatewayId
+	})
+	console.log('filtered items', filteredData)
+
 
 
 
