@@ -18,7 +18,8 @@ const formatDate = (date: Date) => {
 
 const ReportsPage = () => {
 	const [projects, setProjects] = useState({});
-	const [gateways, setGateways] = useState({})
+	const [gateways, setGateways] = useState({});
+	const [reports, setReports] = useState([]);
 
 	const [projectObject, setProjectObject] = useState(null)
 	const [gatewayObject, setGatewayObject] = useState(null)
@@ -40,7 +41,7 @@ const ReportsPage = () => {
 			projectId: selectedProject,
 			gatewayId: selectedGateway
 		}).then(
-			res => console.log(res)
+			res => setReports(res.data.data)
 		).catch(err => err)
 		console.log('get reports')
 	}
@@ -123,8 +124,9 @@ const ReportsPage = () => {
 			<div>
 				{/* <ReportsEmpty /> */}
 				<Reports 
-					selectedProject = {projectObject ? projectObject.name : ''}
-					selectedGateway = {gatewayObject ? gatewayObject.name : ''}
+					selectedProject = {projectObject ? projectObject : ''}
+					selectedGateway = {gatewayObject ? gatewayObject : ''}
+					reportsData = {reports}
 				/>
 			</div>
 		</section>

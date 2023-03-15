@@ -2,10 +2,45 @@ import React from "react";
 import style from './Reports.module.css';
 
 const Reports = (props: any) => {
+	const reportsData = [...props.reportsData];
+	console.log(reportsData);
+
+	const groupedDataByProject = reportsData.reduce((acc, item) => {
+		const projectId = item.projectId;
+
+		if(!acc[projectId]){
+			acc[projectId] = []
+		}
+
+		acc[projectId].push(item)
+		return acc
+	}, {})
+	console.log(groupedDataByProject, 'by project')
+
+	const groupedDataByGateway = reportsData.reduce((acc, item) => {
+		const gatewayId = item.gatewayId;
+
+		if(!acc[gatewayId]){
+			acc[gatewayId] = []
+		}
+
+		acc[gatewayId].push(item)
+		return acc
+	}, {})
+	console.log(groupedDataByGateway, 'by gateway')
+
+
+
+
+	const groupDataByGateway = () => {
+
+	}
+
+
 	return (
 		<div className={style.ReportsContainer}>
 			<div>
-				<span>{props.selectedProject} | {props.selectedGateway}</span>
+				<span>{props.selectedProject.name} | {props.selectedGateway.name}</span>
 				<div>
 					<span>project 1</span>
 					<span>total: total here</span>
