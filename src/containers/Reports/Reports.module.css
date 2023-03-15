@@ -5,10 +5,14 @@
 .ReportsChartWrapper{
 	display: flex;
 	flex-direction: row;
-	width: 100%;
+	/* width: 100%; */
 	justify-content: space-between;
 }
 
 .ReportsChartWrapper{
+	/* width: 50%; */
+}
+
+.ReportsTableWrapper{
 	width: 50%;
 }

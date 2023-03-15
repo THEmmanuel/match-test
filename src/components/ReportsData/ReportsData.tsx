@@ -65,7 +65,6 @@ const ReportsData = (props: any) => {
 				);
 			})}
 		</div>
-
 	)
 }
 

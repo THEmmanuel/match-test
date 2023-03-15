@@ -39,9 +39,7 @@ const Reports = (props: any) => {
 	console.log('filtered items', filteredData)
 
 
-	// Conditional rendering for project, gateway info and charts based on user input
-
-
+	// Conditional rendering for project, gateway info and donut chart based on user input
 	if (props.selectedProject === '' && props.selectedGateway === '') {
 		return (
 			<div>
@@ -53,10 +51,13 @@ const Reports = (props: any) => {
 	} else if (props.selectedProject === '' && props.selectedGateway !== '') {
 		return (
 			<div className={style.ReportsChartWrapper}>
-				<ReportsData
-					data={groupedDataByProject}
-				/>
-				<DonutChart />
+				<div className={style.ReportsTableWrapper}>
+					<ReportsData
+						data={groupedDataByProject}
+					/>
+				</div>
+
+				<DonutChart data={groupedDataByProject} />
 			</div>
 		)
 	} else if (props.selectedProject !== '' && props.selectedGateway !== '') {
@@ -70,10 +71,13 @@ const Reports = (props: any) => {
 	} else if (props.selectedProject !== '' && props.selectedGateway === '') {
 		return (
 			<div className={style.ReportsChartWrapper}>
-				<ReportsData
-					data={groupedDataByProject}
-				/>
-				<DonutChart />
+				<div className={style.ReportsTableWrapper}>
+					<ReportsData
+						data={groupedDataByGateway}
+					/>
+				</div>
+
+				<DonutChart data={groupedDataByGateway}/>
 			</div>
 		)
 	} else {
