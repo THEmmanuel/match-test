@@ -5,6 +5,7 @@ import style from './ReportsPage.module.css';
 
 // Component imports
 import Dropdown from "../../components/Dropdown/Dropdown";
+import Datepicker from "../../components/Datepicker/Datepicker";
 import ReportsEmpty from "../../containers/ReportsEmpty/ReportsEmpty";
 import Reports from "../../containers/Reports/Reports";
 
@@ -16,6 +17,8 @@ const ReportsPage = () => {
 
 	const [selectedProject, setSelectedProject] = useState('')
 	const [selectedGateway, setSelectedGateway] = useState('')
+	const [toDate, setToDate] = useState('')
+	const [fromDate, setFromDate] = useState('')
 
 	const getProjects = () => {
 		axios.get(`${API_URL}/projects`)
@@ -60,8 +63,11 @@ const ReportsPage = () => {
 					<Dropdown
 						type='gateway'
 						values={gateways}
-						onSelect = {handleGatewayChange}
+						onSelect={handleGatewayChange}
 					/>
+
+					<Datepicker />
+					<Datepicker />
 
 					<button className={style.ReportsGenerateButton}>
 						Generate Report
