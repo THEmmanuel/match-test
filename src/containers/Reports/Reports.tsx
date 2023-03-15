@@ -46,28 +46,35 @@ const Reports = (props: any) => {
 		return (
 			<div>
 				{/* <span>Card</span> */}
-				<ReportsData 
-				data = {groupedDataByProject}
+				<ReportsData
+					data={groupedDataByProject}
 				/>
 			</div>
 		)
 	} else if (props.selectedProject === '' && props.selectedGateway !== '') {
 		return (
 			<div>
-				<ReportsData />
+				<ReportsData
+					data={filteredData}
+				/>
 				<DonutChart />
 			</div>
 		)
 	} else if (props.selectedProject !== '' && props.selectedGateway !== '') {
 		return (
 			<div>
-				<ReportsData />
+				<ReportsData
+					data={groupedDataByGateway}
+				/>
 			</div>
 		)
 	} else if (props.selectedProject !== '' && props.selectedGateway === '') {
 		return (
 			<div>
-				<ReportsData />
+				<ReportsData
+					data={filteredData}
+
+				/>
 				<DonutChart />
 			</div>
 		)

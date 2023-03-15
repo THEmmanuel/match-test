@@ -7,7 +7,7 @@ const ReportsData = (props: any) => {
 
 	const ProjectCard = (props: any) => {
 		return (
-			<div>
+			<div className={style.ProjectHeading}>
 				<span>{props.projectName}</span>
 				<span>{props.projectAmount}</span>
 			</div>
