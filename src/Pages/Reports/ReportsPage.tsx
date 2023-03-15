@@ -20,6 +20,9 @@ const ReportsPage = () => {
 	const [projects, setProjects] = useState({});
 	const [gateways, setGateways] = useState({})
 
+	const [projectObject, setProjectObject] = useState(null)
+	const [gatewayObject, setGatewayObject] = useState(null)
+
 	const [selectedProject, setSelectedProject] = useState('')
 	const [selectedGateway, setSelectedGateway] = useState('')
 	const [toDate, setToDate] = useState('')
@@ -33,7 +36,9 @@ const ReportsPage = () => {
 	const getReports = () => {
 		axios.post(`${API_URL}/report`, {
 			from: fromDate,
-			to: toDate
+			to: toDate,
+			projectId: selectedProject,
+			gatewayId: selectedGateway
 		}).then(
 			res => console.log(res)
 		).catch(err => err)
@@ -48,10 +53,12 @@ const ReportsPage = () => {
 
 	const handleProjectChange = (selectedValue: any) => {
 		setSelectedProject(selectedValue.projectId)
+		setProjectObject(selectedValue)
 	}
 
 	const handleGatewayChange = (selectedValue: any) => {
 		setSelectedGateway(selectedValue.gatewayId)
+		setGatewayObject(selectedValue)
 	}
 
 	const handleToDateChange = (selectedValue: any) => {
@@ -115,7 +122,10 @@ const ReportsPage = () => {
 
 			<div>
 				{/* <ReportsEmpty /> */}
-				<Reports />
+				<Reports 
+					selectedProject = {projectObject ? projectObject.name : ''}
+					selectedGateway = {gatewayObject ? gatewayObject.name : ''}
+				/>
 			</div>
 		</section>
 	)
