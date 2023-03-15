@@ -21,6 +21,7 @@
 
 .ReportsTable {
 	width: 100%;
+	background-color: chartreuse;
 }
 
 .ReportsTableRowFirst {
@@ -29,4 +30,9 @@
 
 .ReportsTableRowLast {
 	text-align: right;
+	margin-right: 24px;
+}
+
+.ReportsTableHeading{
+	background-color: darkturquoise;
 }

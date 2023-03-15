@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import style from './ReportsData.module.css';
 
 const ReportsData = (props: any) => {
@@ -28,7 +28,7 @@ const ReportsData = (props: any) => {
 						/>
 
 						<table className={style.ReportsTable}>
-							<thead>
+							<thead className={style.ReportsTableHeading}>
 								<th className={style.ReportsTableRowFirst}>Date</th>
 								<th>Gateway</th>
 								<th>Transaction ID</th>
