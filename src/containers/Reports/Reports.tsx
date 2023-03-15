@@ -1,6 +1,9 @@
 import React from "react";
 import style from './Reports.module.css';
 
+import ReportsData from "../../components/ReportsData/ReportsData";
+import DonutChart from "../../components/DonutChart/DonutChart";
+
 const Reports = (props: any) => {
 	const reportsData = [...props.reportsData];
 	console.log(reportsData);
@@ -37,33 +40,33 @@ const Reports = (props: any) => {
 
 
 	// Conditional rendering for project, gateway info and charts based on user input
-	
-	
+
+
 	if (props.selectedProject === '' && props.selectedGateway === '') {
 		return (
 			<div>
 				{/* <span>Card</span> */}
-				<span>Tablejjj</span>
+				<ReportsData />
 			</div>
 		)
 	} else if (props.selectedProject === '' && props.selectedGateway !== '') {
 		return (
 			<div>
-				<span>Table</span>
-				<span>Chart</span>
+				<ReportsData />
+				<DonutChart />
 			</div>
 		)
 	} else if (props.selectedProject !== '' && props.selectedGateway !== '') {
 		return (
 			<div>
-				<span>Table</span>
+				<ReportsData />
 			</div>
 		)
 	} else if (props.selectedProject !== '' && props.selectedGateway === '') {
 		return (
 			<div>
-				<span>Table</span>
-				<span>Chart</span>
+				<ReportsData />
+				<DonutChart />
 			</div>
 		)
 	} else {
