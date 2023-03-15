@@ -3,19 +3,27 @@
 	flex-direction: row;
 	background-color: #1BC5BD;
 	color: #FFF;
+	height: -webkit-fit-content;
+	height: -moz-fit-content;
 	height: fit-content;
 	padding: 8px;
 	border-radius: 5px;
 	gap: 10px;
+	width: -webkit-fit-content;
+	width: -moz-fit-content;
 	width: fit-content;
 }
 
 .customDatepicker {
 	background-color: transparent;
 	border: none;
+	width: -webkit-fit-content;
+	width: -moz-fit-content;
 	width: fit-content;
 	/* height: 37px; */
 	color: #FFF;
+	height: -webkit-fit-content;
+	height: -moz-fit-content;
 	height: fit-content;
   }
 

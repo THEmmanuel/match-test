@@ -16,4 +16,12 @@
 
 .ReportsTableWrapper{
 	width: 50%;
+	background-color: #F1FAFE;
+	padding: 30px 15px;
+}
+
+.selectedOptionText{
+	text-align: left;
+	font-weight: 700;
+	margin-top: 20px;
 }

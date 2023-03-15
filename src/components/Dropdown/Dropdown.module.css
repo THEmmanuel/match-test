@@ -3,6 +3,8 @@
 	color: #FFFFFF; 
 	border: none;
 	border-radius: 5px;
+	height: -webkit-fit-content;
+	height: -moz-fit-content;
 	height: fit-content;
 	padding: 10px 15px 10px 10px;
 }
