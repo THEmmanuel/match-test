@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import style from './ReportsPage.module.css';
+import { format } from 'date-fns';
 
 // Component imports
 import Dropdown from "../../components/Dropdown/Dropdown";
@@ -10,6 +11,10 @@ import ReportsEmpty from "../../containers/ReportsEmpty/ReportsEmpty";
 import Reports from "../../containers/Reports/Reports";
 
 const API_URL = 'http://178.63.13.157:8090/mock-api/api'
+
+const formatDate = (date: Date) => {
+	return format(date, 'yyyy-MM-dd');
+}
 
 const ReportsPage = () => {
 	const [projects, setProjects] = useState({});
@@ -37,6 +42,16 @@ const ReportsPage = () => {
 	const handleGatewayChange = (selectedValue: string) => {
 		setSelectedGateway(selectedValue)
 	}
+
+	const handleToDateChange = (selectedValue: any) => {
+		setToDate(formatDate(selectedValue))
+	}
+
+	const handleFromDateChange = (selectedValue: any) => {
+		setFromDate(formatDate(selectedValue))
+	}
+
+
 
 	useEffect(() => {
 		getProjects()
@@ -70,10 +85,12 @@ const ReportsPage = () => {
 
 					<Datepicker
 						placeholderText='To date'
+						onSelect={handleToDateChange}
 					/>
 
 					<Datepicker
 						placeholderText='From date'
+						onSelect={handleFromDateChange}
 					/>
 
 					<button className={style.ReportsGenerateButton}>

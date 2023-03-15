@@ -1,17 +1,21 @@
 import React, { useState } from "react";
 import calendarIcon from '../../assets/calendarIcon.svg'
-
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
-// import { FaCalendarAlt } from 'react-icons/fa';
+import { format } from 'date-fns';
 import style from './Datepicker.module.css';
 
 const Datepicker = (props: any) => {
 	const [selectedDate, setSelectedDate] = useState(null);
 
-	const handleDateChange = (date: any) => {
+	const handleDateChange = (date:any) => {
+		props.onSelect(date);
 		setSelectedDate(date);
 	};
+
+	const formatDate = (date: Date) => {
+		return format(date, 'yyyy-MM-dd');
+	}
 
 	return (
 		<div className={style.Datepicker}>
@@ -22,6 +26,10 @@ const Datepicker = (props: any) => {
 				placeholderText={props.placeholderText}
 				className={style.customDatepicker}
 			/>
+
+			{/* {selectedDate && (
+				<p>Selected date:{formatDate(selectedDate)}</p>
+			)} */}
 
 			<img src={calendarIcon} alt="" />
 		</div>
