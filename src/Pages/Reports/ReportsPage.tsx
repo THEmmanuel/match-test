@@ -58,16 +58,23 @@ const ReportsPage = () => {
 						type='projects'
 						values={projects}
 						onSelect={handleProjectChange}
+						placeholderText='Select project'
 					/>
 
 					<Dropdown
 						type='gateway'
 						values={gateways}
 						onSelect={handleGatewayChange}
+						placeholderText='Select gateway'
 					/>
 
-					<Datepicker />
-					<Datepicker />
+					<Datepicker
+						placeholderText='To date'
+					/>
+
+					<Datepicker
+						placeholderText='From date'
+					/>
 
 					<button className={style.ReportsGenerateButton}>
 						Generate Report

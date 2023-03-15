@@ -6,7 +6,7 @@ import "react-datepicker/dist/react-datepicker.css";
 // import { FaCalendarAlt } from 'react-icons/fa';
 import style from './Datepicker.module.css';
 
-const Datepicker = () => {
+const Datepicker = (props: any) => {
 	const [selectedDate, setSelectedDate] = useState(null);
 
 	const handleDateChange = (date: any) => {
@@ -19,7 +19,7 @@ const Datepicker = () => {
 				selected={selectedDate}
 				onChange={handleDateChange}
 				dateFormat="yyyy-MM-dd"
-				placeholderText="Select a date"
+				placeholderText={props.placeholderText}
 				className={style.customDatepicker}
 			/>
 

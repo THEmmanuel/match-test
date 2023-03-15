@@ -23,8 +23,13 @@ const Dropdown = (props: any) => {
 			className={style.Dropdown}
 		>
 			<option value="" disabled>
-				Select an option
+				{props.placeholderText}
 			</option>
+
+			<option value="all">
+				All
+			</option>
+
 			{options}
 		</select>
 	);
