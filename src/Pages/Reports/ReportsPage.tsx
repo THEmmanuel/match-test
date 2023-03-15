@@ -30,17 +30,28 @@ const ReportsPage = () => {
 			.then(res => setProjects(res.data.data))
 	}
 
+	const getReports = () => {
+		axios.post(`${API_URL}/report`, {
+			from: fromDate,
+			to: toDate
+		}).then(
+			res => console.log(res)
+		).catch(err => err)
+		console.log('get reports')
+	}
+
+
 	const getGateways = () => {
 		axios.get(`${API_URL}/gateways`)
 			.then(res => setGateways(res.data.data))
 	}
 
-	const handleProjectChange = (selectedValue: string) => {
-		setSelectedProject(selectedValue)
+	const handleProjectChange = (selectedValue: any) => {
+		setSelectedProject(selectedValue.projectId)
 	}
 
-	const handleGatewayChange = (selectedValue: string) => {
-		setSelectedGateway(selectedValue)
+	const handleGatewayChange = (selectedValue: any) => {
+		setSelectedGateway(selectedValue.gatewayId)
 	}
 
 	const handleToDateChange = (selectedValue: any) => {
@@ -93,7 +104,10 @@ const ReportsPage = () => {
 						onSelect={handleFromDateChange}
 					/>
 
-					<button className={style.ReportsGenerateButton}>
+					<button 
+					className={style.ReportsGenerateButton}
+					onClick = {getReports}
+					>
 						Generate Report
 					</button>
 				</div>

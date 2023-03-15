@@ -3,8 +3,14 @@ import style from './Reports.module.css';
 
 const Reports = () => {
 	return (
-		<div>
-			<span>All Projects | All Gateways</span>
+		<div className={style.ReportsContainer}>
+			<div>
+				<span>All Projects | All Gateways</span>
+			</div>
+
+			<div>
+				<span>Charts</span>
+			</div>
 		</div>
 	)
 }

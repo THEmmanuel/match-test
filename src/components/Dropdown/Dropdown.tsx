@@ -6,12 +6,19 @@ const Dropdown = (props: any) => {
 
 	const handleOptionChange = (event: any) => {
 		const selectedValue = event.target.value;
+		const selectedItem = Object.values(props.values).find((value: any) => {
+			if (props.type === 'projects') {
+				return value.projectId === selectedValue;
+			} else {
+				return value.gatewayId === selectedValue;
+			}
+		});
 		setSelectedOption(selectedValue);
-		props.onSelect(selectedValue);
+		props.onSelect(selectedItem);
 	};
 
 	const options = Object.values(props.values).map((value: any) => (
-		<option key={props.type === 'projects' ? value.projectId : value.gatewayId} value={value.name}>
+		<option key={props.type === 'projects' ? value.projectId : value.gatewayId} value={props.type === 'projects' ? value.projectId : value.gatewayId}>
 			{value.name}
 		</option>
 	));
