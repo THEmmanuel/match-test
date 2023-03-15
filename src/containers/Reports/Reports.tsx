@@ -46,7 +46,9 @@ const Reports = (props: any) => {
 		return (
 			<div>
 				{/* <span>Card</span> */}
-				<ReportsData />
+				<ReportsData 
+				data = {groupedDataByProject}
+				/>
 			</div>
 		)
 	} else if (props.selectedProject === '' && props.selectedGateway !== '') {
