@@ -1,8 +1,20 @@
-.DonutChartWrapper{
+.DonutChartWrapper {
 	width: 50%;
+	display: flex;
+	flex-direction: column;
 }
 
-.DonutChartContainer{
+.DonutChartContainer {
 	width: 500px;
 	margin: auto;
+}
+
+.amountSum {
+	background-color: #F1FAFE;
+	padding: 20px;
+	margin-top: 50px;
+	text-align: left;
+	border-radius: 10px;
+	color: #011F4B;
+	font-weight: 700;
 }

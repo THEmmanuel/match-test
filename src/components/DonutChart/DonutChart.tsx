@@ -9,26 +9,26 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 const DonutChart = (props: any) => {
 	const data = props.data
 
-	const arr1 = Object.keys(data);
-	const arr2 = [];
+	const idArray = Object.keys(data);
+	const amountArray = [];
 
-	for (let key of arr1) {
+	for (let key of idArray) {
 		let sum = 0;
 		for (let obj of data[key]) {
 			sum += obj.amount;
 		}
-		arr2.push(sum);
+		amountArray.push(sum);
 	}
 
-	console.log(arr1); // Output: ['ERdPQ', 'bgYhx']
-	console.log(arr2); // Output: [3523.91, 3500]
+	console.log(idArray); // Output: ['ERdPQ', 'bgYhx']
+	console.log(amountArray); // Output: [3523.91, 3500]
 
 	const chartData = {
-		labels: [...arr1],
+		labels: [...idArray],
 		datasets: [
 			{
 				label: 'Amount',
-				data: [...arr2],
+				data: [...amountArray],
 
 				backgroundColor: [
 					'rgba(162, 89, 255, 1)',
@@ -56,6 +56,8 @@ const DonutChart = (props: any) => {
 			<div className={style.DonutChartContainer}>
 				<Doughnut data={chartData} />
 			</div>
+
+			<span className={style.amountSum}>Total : Total value</span>
 		</div>
 	)
 }
