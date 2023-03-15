@@ -45,6 +45,7 @@ const Reports = (props: any) => {
 			<div>
 				<ReportsData
 					data={groupedDataByProject}
+					type='Project'
 				/>
 			</div>
 		)
@@ -53,6 +54,7 @@ const Reports = (props: any) => {
 			<div className={style.ReportsChartWrapper}>
 				<div className={style.ReportsTableWrapper}>
 					<ReportsData
+						type='Project'
 						data={groupedDataByProject}
 					/>
 				</div>
@@ -64,6 +66,7 @@ const Reports = (props: any) => {
 		return (
 			<div>
 				<ReportsData
+					type='Gateway'
 					data={groupedDataByGateway}
 				/>
 			</div>
@@ -73,11 +76,12 @@ const Reports = (props: any) => {
 			<div className={style.ReportsChartWrapper}>
 				<div className={style.ReportsTableWrapper}>
 					<ReportsData
+						type='Gateway'
 						data={groupedDataByGateway}
 					/>
 				</div>
 
-				<DonutChart data={groupedDataByGateway}/>
+				<DonutChart data={groupedDataByGateway} />
 			</div>
 		)
 	} else {

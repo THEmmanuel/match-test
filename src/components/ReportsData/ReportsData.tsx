@@ -1,71 +1,77 @@
 import React, { useState } from 'react';
 import style from './ReportsData.module.css';
 
-const ReportsData = (props: any) => {
-	console.log(props.data)
-
-
-
-	const ProjectCard = (props: any) => {
-		const [showTable, setShowTable] = useState(false)
-		const tableToggleHandler = () => setShowTable(!showTable)
-
-		return (
-			<>
-				<div className={style.ProjectHeading} onClick={tableToggleHandler}>
-					<span className={style.ProjectName}>{props.projectName}</span>
-					<span className={style.ProjectAmount}>Total: {props.projectAmount}USD</span>
-				</div>
-
-
-				{
-					showTable ?
-						<table className={style.ReportsTable}>
-							<thead className={style.ReportsTableHeading}>
-								<th className={style.ReportsTableRowFirst}>Date</th>
-								<th>Gateway</th>
-								<th>Transaction ID</th>
-								<th className={style.ReportsTableRowLast}>Amount</th>
-							</thead>
-
-							<tbody>
-								{props.value.map((item, index) => (
-									<tr className={style.ReportsTableRow}>
-										<td className={style.ReportsTableRowFirst}>{item.modified}</td>
-										<td>{item.gatewayId}</td>
-										<td>{item.paymentId}</td>
-										<td className={style.ReportsTableRowLast}>{item.amount} USD</td>
-									</tr>
-								))}
-							</tbody>
-						</table>
-						: null
-				}
-
-			</>
-		)
-	}
-
-
-
-	return (
-		<div className={style.ReportsWrapper}>
-			{Object.entries(props.data).map(([key, value]) => {
-				// Calculate the total amount for this key
-				const totalAmount = value.reduce((acc, item) => acc + item.amount, 0);
-
-				return (
-					<div key={key}>
-						<ProjectCard
-							projectName={key}
-							projectAmount={totalAmount}
-							value={value}
-						/>
-					</div>
-				);
-			})}
-		</div>
-	)
+interface ReportsDataProps {
+  data: { [key: string]: { modified: string; amount: number; paymentId: string; projectId?: string; gatewayId?: string }[] };
+  type: string;
 }
 
-export default ReportsData
+interface ProjectCardProps {
+  projectName: string;
+  projectAmount: number;
+  value: { modified: string; amount: number; paymentId: string; projectId?: string; gatewayId?: string }[];
+  type: string;
+}
+
+const ReportsData = (props: ReportsDataProps) => {
+  console.log(props.type)
+
+  const ProjectCard = (props: ProjectCardProps) => {
+    const [showTable, setShowTable] = useState(false)
+    const tableToggleHandler = () => setShowTable(!showTable)
+
+    return (
+      <>
+        <div className={style.ProjectHeading} onClick={tableToggleHandler}>
+          <span className={style.ProjectName}>{props.projectName}</span>
+          <span className={style.ProjectAmount}>Total: {props.projectAmount}USD</span>
+        </div>
+
+        {showTable ?
+          <table className={style.ReportsTable}>
+            <thead className={style.ReportsTableHeading}>
+              <tr>
+                <th className={style.ReportsTableRowFirst}>Date</th>
+                <th>{props.type}</th>
+                <th>Transaction ID</th>
+                <th className={style.ReportsTableRowLast}>Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              {props.value.map((item, index) => (
+                <tr className={style.ReportsTableRow} key={index}>
+                  <td className={style.ReportsTableRowFirst}>{item.modified}</td>
+                  <td>{props.type === 'Gateway' ? item.projectId : item.gatewayId}</td>
+                  <td>{item.paymentId}</td>
+                  <td className={style.ReportsTableRowLast}>{item.amount} USD</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          : null
+        }
+      </>
+    )
+  }
+
+  return (
+    <div className={style.ReportsWrapper}>
+      {Object.entries(props.data).map(([key, value]) => {
+        const totalAmount = value.reduce((acc, item) => acc + item.amount, 0);
+
+        return (
+          <div key={key}>
+            <ProjectCard
+              projectName={key}
+              projectAmount={totalAmount}
+              value={value}
+              type={props.type}
+            />
+          </div>
+        );
+      })}
+    </div>
+  )
+}
+
+export default ReportsData;

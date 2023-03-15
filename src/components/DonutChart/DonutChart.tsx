@@ -3,6 +3,7 @@ import style from './DonutChart.module.css';
 
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
+import 'chartjs-plugin-datalabels';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -22,6 +23,19 @@ const DonutChart = (props: any) => {
 
 	console.log(idArray); // Output: ['ERdPQ', 'bgYhx']
 	console.log(amountArray); // Output: [3523.91, 3500]
+
+	const options = {
+		plugins: {
+			doughnutlabel: 
+			{
+				labels: {
+				render: 'percentage',
+				fontColor: ['green', 'white', 'red'],
+				precision: 2
+			}
+			}
+		},
+	};
 
 	const chartData = {
 		labels: [...idArray],
