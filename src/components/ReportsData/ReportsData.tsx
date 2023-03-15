@@ -8,8 +8,8 @@ const ReportsData = (props: any) => {
 	const ProjectCard = (props: any) => {
 		return (
 			<div className={style.ProjectHeading}>
-				<span>{props.projectName}</span>
-				<span>{props.projectAmount}</span>
+				<span className={style.ProjectName}>{props.projectName}</span>
+				<span className={style.ProjectAmount}>Total: {props.projectAmount}USD</span>
 			</div>
 		)
 	}
@@ -27,21 +27,21 @@ const ReportsData = (props: any) => {
 							projectAmount={totalAmount}
 						/>
 
-						<table>
+						<table className={style.ReportsTable}>
 							<thead>
-								<th>Date</th>
+								<th className={style.ReportsTableRowFirst}>Date</th>
 								<th>Gateway</th>
 								<th>Transaction ID</th>
-								<th>Amount</th>
+								<th className={style.ReportsTableRowLast}>Amount</th>
 							</thead>
 
 							<tbody>
 								{value.map((item, index) => (
-									<tr>
-										<td>{item.modified}</td>
+									<tr className={style.ReportsTableRow}>
+										<td className={style.ReportsTableRowFirst}>{item.modified}</td>
 										<td>{item.gatewayId}</td>
 										<td>{item.paymentId}</td>
-										<td>{item.amount}</td>
+										<td className={style.ReportsTableRowLast}>{item.amount} USD</td>
 									</tr>
 								))}
 							</tbody>

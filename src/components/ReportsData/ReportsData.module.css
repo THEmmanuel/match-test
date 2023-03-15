@@ -1,0 +1,32 @@
+.ProjectHeading {
+	background-color: yellow;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 24px;
+	border-radius: 10px;
+}
+
+.ProjectName {
+	color: #011F4B;
+	font-weight: 700;
+	font-size: 16px;
+}
+
+.ProjectAmount {
+	font-weight: 700;
+	font-size: 16px;
+	color: #011F4B;
+}
+
+.ReportsTable {
+	width: 100%;
+}
+
+.ReportsTableRowFirst {
+	text-align: left;
+}
+
+.ReportsTableRowLast {
+	text-align: right;
+}
