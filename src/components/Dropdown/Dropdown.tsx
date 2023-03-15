@@ -41,7 +41,7 @@ const Dropdown = (props: any) => {
 			</option>
 
 			<option value="all">
-				All
+				All {props.type === 'projects' ? 'Projects' : 'Gateways' }
 			</option>
 
 			{options}

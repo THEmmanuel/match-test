@@ -112,9 +112,9 @@ const ReportsPage = () => {
 						onSelect={handleFromDateChange}
 					/>
 
-					<button 
-					className={style.ReportsGenerateButton}
-					onClick = {getReports}
+					<button
+						className={style.ReportsGenerateButton}
+						onClick={getReports}
 					>
 						Generate Report
 					</button>
@@ -122,12 +122,16 @@ const ReportsPage = () => {
 			</div>
 
 			<div>
-				{/* <ReportsEmpty /> */}
-				<Reports 
-					selectedProject = {projectObject ? projectObject : ''}
-					selectedGateway = {gatewayObject ? gatewayObject : ''}
-					reportsData = {reports}
-				/>
+				{
+					reports.length === 0 ?
+						< ReportsEmpty />
+						:
+						<Reports
+							selectedProject={projectObject ? projectObject : ''}
+							selectedGateway={gatewayObject ? gatewayObject : ''}
+							reportsData={reports}
+						/>
+				}
 			</div>
 		</section>
 	)
