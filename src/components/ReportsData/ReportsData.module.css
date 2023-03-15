@@ -1,5 +1,5 @@
 .ProjectHeading {
-	background-color: yellow;
+	background-color: #FFF;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -21,7 +21,7 @@
 
 .ReportsTable {
 	width: 100%;
-	background-color: chartreuse;
+	background-color: #F1FAFE;
 }
 
 .ReportsTableRowFirst {
@@ -34,5 +34,24 @@
 }
 
 .ReportsTableHeading{
-	background-color: darkturquoise;
+	background-color: #FFF;
+}
+
+.ReportsWrapper{
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	background-color: #F1FAFE;
+}
+
+tbody{
+	margin-top: 10px;
+}
+
+td{
+	padding: 20px;
+}
+
+th{
+	padding: 5px 20px;
 }
