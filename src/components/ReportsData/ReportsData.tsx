@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import style from './ReportsData.module.css';
-import { formatNumber } from '../../assets/utils/formatNumber';
+import { formatNumber } from '../../utils/formatNumber';
 
 interface ReportsDataProps {
 	data: { [key: string]: { modified: string; amount: number; paymentId: string; projectId?: string; gatewayId?: string }[] };

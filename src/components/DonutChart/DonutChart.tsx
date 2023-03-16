@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './DonutChart.module.css';
-import { formatNumber } from '../../assets/utils/formatNumber';
+import { formatNumber } from '../../utils/formatNumber';
 
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
