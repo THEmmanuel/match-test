@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from "react";
 import style from './ReportsData.module.css';
 import { formatNumber } from '../../utils/formatNumber';
+import { dataContext } from "../../contexts/dataContext";
+
 
 interface ReportsDataProps {
 	data: { [key: string]: { modified: string; amount: number; paymentId: string; projectId?: string; gatewayId?: string }[] };
@@ -18,7 +20,22 @@ interface ProjectCardProps {
 }
 
 const ReportsData = (props: ReportsDataProps) => {
-	console.log(props.type);
+	const { projects } = useContext(dataContext)
+	const { gateways } = useContext(dataContext)
+
+	const getProjectName = (projectId: any) => {
+		const project = projects.find((project: any) => project.projectId === projectId);
+		return project ? project.name : '';
+	};
+
+	
+	const getGatewayName = (gatewayId: any) => {
+		const gateway = gateways.find((gateway: any) => gateway.gatewayId === gatewayId);
+		console.log(gateway)
+		return gateway ? gateway.name : '';
+	};
+	
+	console.log(getGatewayName('i6ssp'))
 
 	const ProjectCard = (props: ProjectCardProps) => {
 		const [showTable, setShowTable] = useState(false);
@@ -45,7 +62,7 @@ const ReportsData = (props: ReportsDataProps) => {
 							{props.value.map((item, index) => (
 								<tr className={style.ReportsTableRow} key={index}>
 									<td className={style.ReportsTableRowFirst}>{item.modified}</td>
-									<td>{props.type === 'Gateway' ? item.projectId : item.gatewayId}</td>
+									<td>{props.type === 'Gateway' ? getProjectName(item.projectId) : getGatewayName(item.gatewayId)}</td>
 									<td>{item.paymentId}</td>
 									<td className={style.ReportsTableRowLast}>{item.amount} USD</td>
 								</tr>
@@ -75,7 +92,7 @@ const ReportsData = (props: ReportsDataProps) => {
 					return (
 						<div key={key} className={style.ReportsCardWrapper}>
 							<ProjectCard
-								projectName={key}
+								projectName={props.type === 'Gateway' ? getGatewayName(key) : getProjectName(key)}
 								projectAmount={totalAmount}
 								value={value}
 								type={props.type}
