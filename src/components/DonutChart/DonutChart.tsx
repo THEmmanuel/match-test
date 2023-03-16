@@ -7,9 +7,9 @@ import { getGatewayName } from "../../utils/nameUtils";
 
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
-import 'chartjs-plugin-datalabels';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 
-ChartJS.register(ArcElement, Tooltip, Legend);
+ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 
 const DonutChart = (props: any) => {
 	const { projects } = useContext(dataContext)
@@ -41,15 +41,28 @@ const DonutChart = (props: any) => {
 
 	const options = {
 		plugins: {
-			doughnutlabel:
-			{
+			doughnutlabel: {
 				labels: {
 					render: 'percentage',
 					fontColor: ['green', 'white', 'red'],
-					precision: 2
+					precision: 2,
+					text: ''
 				}
+			},
+			datalabels: {
+				display: true,
+				formatter: (value: number, ctx: { chart: { data: { datasets: { data: any; }[]; }; }; }) => {
+					let sum = 0;
+					let dataArr = ctx.chart.data.datasets[0].data;
+					dataArr.map((data: number) => {
+						sum += data;
+					});
+					let percentage = (value * 100 / sum).toFixed(2) + "%";
+					return percentage;
+				},
+				color: '#fff',
 			}
-		},
+		}
 	};
 
 	const chartData = {
@@ -83,8 +96,8 @@ const DonutChart = (props: any) => {
 	return (
 		<div className={style.DonutChartWrapper}>
 			<div className={style.DonutChartContainer}>
-				<Doughnut data={chartData} 
-				// options = {options}
+				<Doughnut data={chartData}
+					options={options}
 				/>
 			</div>
 
