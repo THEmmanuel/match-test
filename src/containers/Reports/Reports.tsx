@@ -6,7 +6,6 @@ import DonutChart from "../../components/DonutChart/DonutChart";
 
 const Reports = (props: any) => {
 	const reportsData = [...props.reportsData];
-	console.log(reportsData);
 
 	const groupedDataByProject = reportsData.reduce((acc, item) => {
 		const projectId = item.projectId;
@@ -18,7 +17,6 @@ const Reports = (props: any) => {
 		acc[projectId].push(item)
 		return acc
 	}, {})
-	console.log(groupedDataByProject, 'by project');
 
 
 	const groupedDataByGateway = reportsData.reduce((acc, item) => {
@@ -31,13 +29,6 @@ const Reports = (props: any) => {
 		acc[gatewayId].push(item)
 		return acc
 	}, {})
-	console.log(groupedDataByGateway, 'by gateway')
-
-	const filteredData = reportsData.filter(item => {
-		return item.projectId === props.selectedProject.projectId && item.gatewayId === props.selectedGateway.gatewayId
-	})
-	console.log('filtered items', filteredData)
-
 
 	// Conditional rendering for project, gateway info and donut chart based on user input
 	if (props.selectedProject === '' && props.selectedGateway === '') {

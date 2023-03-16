@@ -6,6 +6,5 @@ export const getProjectName = (projectId: any, projects: any) => {
 
 export const getGatewayName = (gatewayId: any, gateways: any) => {
 	const gateway = gateways.find((gateway: any) => gateway.gatewayId === gatewayId);
-	console.log(gateway)
 	return gateway ? gateway.name : '';
 };

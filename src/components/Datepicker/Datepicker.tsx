@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import calendarIcon from '../../assets/calendarIcon.svg'
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
-import { format } from 'date-fns';
 import style from './Datepicker.module.css';
 
 const Datepicker = (props: any) => {
@@ -13,9 +12,6 @@ const Datepicker = (props: any) => {
 		setSelectedDate(date);
 	};
 
-	const formatDate = (date: Date) => {
-		return format(date, 'yyyy-MM-dd');
-	}
 
 	return (
 		<div className={style.Datepicker}>

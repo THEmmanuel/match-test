@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";
+/* eslint-disable array-callback-return */
+import React, {useContext } from "react";
 import { dataContext } from "../../contexts/dataContext";
 import style from './DonutChart.module.css';
 import { formatNumber } from '../../utils/formatNumber';
@@ -34,8 +35,8 @@ const DonutChart = (props: any) => {
 		amountArray.push(sum);
 	}
 
-	console.log(idArray); // Output: ['ERdPQ', 'bgYhx']
-	console.log(amountArray); // Output: [3523.91, 3500]
+	// console.log(idArray); // Output: ['ERdPQ', 'bgYhx']
+	// console.log(amountArray); // Output: [3523.91, 3500]
 
 	const totalAmount = amountArray.reduce((acc, curr) => acc + curr, 0);
 

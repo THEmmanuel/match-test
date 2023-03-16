@@ -23,8 +23,8 @@ const formatDate = (date: Date) => {
 
 const ReportsPage = () => {
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	const { projects, setProjects } = useContext(dataContext)
-	const { gateways, setGateways } = useContext(dataContext)
+	const { projects } = useContext(dataContext)
+	const { gateways } = useContext(dataContext)
 	const [reports, setReports] = useState([]);
 	const [showReports, setShowReports] = useState(false)
 
@@ -45,7 +45,6 @@ const ReportsPage = () => {
 		}).then(
 			res => setReports(res.data.data)
 		).catch(err => err)
-		console.log('get reports')
 		setShowReports(true)
 	}
 
