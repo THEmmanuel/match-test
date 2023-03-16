@@ -1,3 +1,15 @@
 import { createContext } from 'react';
-export const projectContext = createContext(null);
-export const gatewayContext = createContext(null);
+
+interface DataContextType {
+	projects: any,
+	setProjects: React.Dispatch<React.SetStateAction<never[]>>,
+	gateways: any,
+	setGateways: React.Dispatch<React.SetStateAction<never[]>>,
+}
+
+export const dataContext = createContext<DataContextType>({
+	projects: [],
+	setProjects: () => { },
+	gateways: [],
+	setGateways: () => { },
+});

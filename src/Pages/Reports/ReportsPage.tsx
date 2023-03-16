@@ -1,14 +1,19 @@
 // Package Imports
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from 'axios';
 import style from './ReportsPage.module.css';
 import { format } from 'date-fns';
+import { dataContext } from "../../contexts/dataContext";
 
 // Component imports
 import Dropdown from "../../components/Dropdown/Dropdown";
 import Datepicker from "../../components/Datepicker/Datepicker";
 import ReportsEmpty from "../../containers/ReportsEmpty/ReportsEmpty";
 import Reports from "../../containers/Reports/Reports";
+
+// // context imports
+// import { projectContext } from "../../contexts/dataContext";
+// import { gatewayContext } from "../../contexts/dataContext";
 
 const API_URL = 'http://178.63.13.157:8090/mock-api/api'
 
@@ -17,8 +22,9 @@ const formatDate = (date: Date) => {
 }
 
 const ReportsPage = () => {
-	const [projects, setProjects] = useState({});
-	const [gateways, setGateways] = useState({});
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	const { projects, setProjects } = useContext(dataContext)
+	const { gateways, setGateways } = useContext(dataContext)
 	const [reports, setReports] = useState([]);
 
 	const [projectObject, setProjectObject] = useState(null)
@@ -28,11 +34,6 @@ const ReportsPage = () => {
 	const [selectedGateway, setSelectedGateway] = useState('')
 	const [toDate, setToDate] = useState('')
 	const [fromDate, setFromDate] = useState('')
-
-	const getProjects = () => {
-		axios.get(`${API_URL}/projects`)
-			.then(res => setProjects(res.data.data))
-	}
 
 	const getReports = () => {
 		axios.post(`${API_URL}/report`, {
@@ -46,11 +47,6 @@ const ReportsPage = () => {
 		console.log('get reports')
 	}
 
-
-	const getGateways = () => {
-		axios.get(`${API_URL}/gateways`)
-			.then(res => setGateways(res.data.data))
-	}
 
 	const handleProjectChange = (selectedValue: any) => {
 		setSelectedProject(selectedValue.projectId)
@@ -73,8 +69,7 @@ const ReportsPage = () => {
 
 
 	useEffect(() => {
-		getProjects()
-		getGateways()
+
 	}, [])
 
 
