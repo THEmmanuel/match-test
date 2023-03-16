@@ -1,5 +1,6 @@
 import React from 'react';
 import style from './DonutChart.module.css';
+import { formatNumber } from '../../assets/utils/formatNumber';
 
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
@@ -23,6 +24,8 @@ const DonutChart = (props: any) => {
 
 	console.log(idArray); // Output: ['ERdPQ', 'bgYhx']
 	console.log(amountArray); // Output: [3523.91, 3500]
+
+	const totalAmount = amountArray.reduce((acc, curr) => acc + curr, 0);
 
 	const options = {
 		plugins: {
@@ -71,7 +74,7 @@ const DonutChart = (props: any) => {
 				<Doughnut data={chartData} />
 			</div>
 
-			<span className={style.amountSum}>Total : Total value</span>
+			<span className={style.amountSum}>Total : {formatNumber(totalAmount)} USD</span>
 		</div>
 	)
 }
