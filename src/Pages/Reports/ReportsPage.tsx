@@ -26,6 +26,7 @@ const ReportsPage = () => {
 	const { projects, setProjects } = useContext(dataContext)
 	const { gateways, setGateways } = useContext(dataContext)
 	const [reports, setReports] = useState([]);
+	const [showReports, setShowReports] = useState(false)
 
 	const [projectObject, setProjectObject] = useState(null)
 	const [gatewayObject, setGatewayObject] = useState(null)
@@ -45,25 +46,30 @@ const ReportsPage = () => {
 			res => setReports(res.data.data)
 		).catch(err => err)
 		console.log('get reports')
+		setShowReports(true)
 	}
 
 
 	const handleProjectChange = (selectedValue: any) => {
 		setSelectedProject(selectedValue.projectId)
 		setProjectObject(selectedValue)
+		setShowReports(false)
 	}
 
 	const handleGatewayChange = (selectedValue: any) => {
 		setSelectedGateway(selectedValue.gatewayId)
 		setGatewayObject(selectedValue)
+		setShowReports(false)
 	}
 
 	const handleToDateChange = (selectedValue: any) => {
 		setToDate(formatDate(selectedValue))
+		setShowReports(false)
 	}
 
 	const handleFromDateChange = (selectedValue: any) => {
 		setFromDate(formatDate(selectedValue))
+		setShowReports(false)
 	}
 
 
@@ -118,14 +124,17 @@ const ReportsPage = () => {
 
 			<div>
 				{
-					reports.length === 0 ?
+					reports.length === 0
+						?
 						< ReportsEmpty />
 						:
-						<Reports
-							selectedProject={projectObject ? projectObject : ''}
-							selectedGateway={gatewayObject ? gatewayObject : ''}
-							reportsData={reports}
-						/>
+						showReports === true ?
+							<Reports
+								selectedProject={projectObject ? projectObject : ''}
+								selectedGateway={gatewayObject ? gatewayObject : ''}
+								reportsData={reports}
+							/>
+							: <span>Click on "Generate Report" to view updated results</span>
 				}
 			</div>
 		</section>

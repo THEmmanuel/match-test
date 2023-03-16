@@ -24,8 +24,6 @@ const ReportsData = (props: ReportsDataProps) => {
 	const { projects } = useContext(dataContext)
 	const { gateways } = useContext(dataContext)
 
-
-
 	const ProjectCard = (props: ProjectCardProps) => {
 		const [showTable, setShowTable] = useState(false);
 		const tableToggleHandler = () => setShowTable(!showTable);

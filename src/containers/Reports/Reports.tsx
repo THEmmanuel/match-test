@@ -67,7 +67,10 @@ const Reports = (props: any) => {
 					/>
 				</div>
 
-				<DonutChart data={groupedDataByProject} />
+				<DonutChart
+					data={groupedDataByProject}
+					type='Project'
+				/>
 			</div>
 		)
 	} else if (props.selectedProject !== '' && props.selectedGateway !== '') {
@@ -96,7 +99,10 @@ const Reports = (props: any) => {
 					/>
 				</div>
 
-				<DonutChart data={groupedDataByGateway} />
+				<DonutChart
+					data={groupedDataByGateway}
+					type='Gateway'
+				/>
 			</div>
 		)
 	} else {

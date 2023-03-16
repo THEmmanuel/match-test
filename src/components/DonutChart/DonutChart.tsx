@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect, useContext } from "react";
+import { dataContext } from "../../contexts/dataContext";
 import style from './DonutChart.module.css';
 import { formatNumber } from '../../utils/formatNumber';
+import { getProjectName } from "../../utils/nameUtils";
+import { getGatewayName } from "../../utils/nameUtils";
 
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
@@ -9,10 +12,15 @@ import 'chartjs-plugin-datalabels';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const DonutChart = (props: any) => {
+	const { projects } = useContext(dataContext)
+	const { gateways } = useContext(dataContext)
+
+
 	const data = props.data
 
 	const idArray = Object.keys(data);
 	const amountArray = [];
+	const nameArray = [...idArray]
 
 	for (let key of idArray) {
 		let sum = 0;
