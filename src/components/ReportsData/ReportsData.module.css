@@ -33,6 +33,18 @@
 	margin-right: 24px;
 }
 
+.TotalSum{
+	display: block;
+	text-align: left;
+	width: 100%;
+	margin-top: 20px;
+	background-color: #F1FAFE;
+	border-radius: 10px;
+	padding: 20px 0px 20px 20px;
+	color: #011F4B;
+	font-weight: 700;
+}
+
 .ReportsTableHeading {
 	background-color: #FFF;
 }
@@ -42,8 +54,14 @@
 	flex-direction: column;
 	gap: 5px;
 	width: 100%;
-	/* padding: 20px; */
+	padding: 40px 10px 40px 10px;
 	background-color: #F1FAFE;
+}
+
+.ReportsTitle{
+	font-size: 1em;
+	text-align: left;
+	color: #011F4B;
 }
 
 table{

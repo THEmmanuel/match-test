@@ -46,6 +46,10 @@ const Reports = (props: any) => {
 				<ReportsData
 					data={groupedDataByProject}
 					type='Project'
+					showTotal={true}
+					selectedProject={props.selectedProject.name}
+					selectedGateway={props.selectedGateway.name}
+
 				/>
 			</div>
 		)
@@ -53,10 +57,13 @@ const Reports = (props: any) => {
 		return (
 			<div className={style.ReportsChartWrapper}>
 				<div className={style.ReportsTableWrapper}>
-					<h3 className={style.selectedOptionText}>Test</h3>
 					<ReportsData
 						type='Project'
 						data={groupedDataByProject}
+						showTotal={false}
+						selectedProject={props.selectedProject.name}
+						selectedGateway={props.selectedGateway.name}
+
 					/>
 				</div>
 
@@ -69,6 +76,10 @@ const Reports = (props: any) => {
 				<ReportsData
 					type='Gateway'
 					data={groupedDataByGateway}
+					showTotal={true}
+					selectedProject={props.selectedProject.name}
+					selectedGateway={props.selectedGateway.name}
+
 				/>
 			</div>
 		)
@@ -76,10 +87,12 @@ const Reports = (props: any) => {
 		return (
 			<div className={style.ReportsChartWrapper}>
 				<div className={style.ReportsTableWrapper}>
-					<h3 className={style.selectedOptionText}>Test</h3>
 					<ReportsData
 						type='Gateway'
 						data={groupedDataByGateway}
+						showTotal={false}
+						selectedProject={props.selectedProject.name}
+						selectedGateway={props.selectedGateway.name}
 					/>
 				</div>
 

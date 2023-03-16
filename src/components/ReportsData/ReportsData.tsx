@@ -5,6 +5,9 @@ import { formatNumber } from '../../assets/utils/formatNumber';
 interface ReportsDataProps {
 	data: { [key: string]: { modified: string; amount: number; paymentId: string; projectId?: string; gatewayId?: string }[] };
 	type: string;
+	showTotal: boolean
+	selectedProject: string
+	selectedGateway: string
 }
 
 interface ProjectCardProps {
@@ -15,11 +18,11 @@ interface ProjectCardProps {
 }
 
 const ReportsData = (props: ReportsDataProps) => {
-	console.log(props.type)
+	console.log(props.type);
 
 	const ProjectCard = (props: ProjectCardProps) => {
-		const [showTable, setShowTable] = useState(false)
-		const tableToggleHandler = () => setShowTable(!showTable)
+		const [showTable, setShowTable] = useState(false);
+		const tableToggleHandler = () => setShowTable(!showTable);
 
 		return (
 			<>
@@ -52,27 +55,43 @@ const ReportsData = (props: ReportsDataProps) => {
 					: null
 				}
 			</>
-		)
-	}
+		);
+	};
+
+	// Calculate total sum
+	const totalSum = Object.values(props.data)
+		.flat()
+		.reduce((sum, item) => sum + item.amount, 0);
 
 	return (
-		<div className={style.ReportsWrapper}>
-			{Object.entries(props.data).map(([key, value]) => {
-				const totalAmount = value.reduce((acc, item) => acc + item.amount, 0);
+		<div>
+			<div className={style.ReportsWrapper}>
+				<h3 className={style.ReportsTitle}>
+					{props.selectedProject ? props.selectedProject : 'All Projects'} | {props.selectedGateway ? props.selectedGateway : 'All Gateways'}
+				</h3>
+				{Object.entries(props.data).map(([key, value]) => {
+					const totalAmount = value.reduce((acc, item) => acc + item.amount, 0);
 
-				return (
-					<div key={key} className={style.ReportsCardWrapper}>
-						<ProjectCard
-							projectName={key}
-							projectAmount={totalAmount}
-							value={value}
-							type={props.type}
-						/>
-					</div>
-				);
-			})}
+					return (
+						<div key={key} className={style.ReportsCardWrapper}>
+							<ProjectCard
+								projectName={key}
+								projectAmount={totalAmount}
+								value={value}
+								type={props.type}
+							/>
+						</div>
+					);
+				})}
+			</div>
+
+			{props.showTotal ? (
+				<span className={style.TotalSum}>
+					Total: {formatNumber(totalSum)} USD
+				</span>
+			) : null}
 		</div>
-	)
-}
+	);
+};
 
 export default ReportsData;
