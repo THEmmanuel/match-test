@@ -40,7 +40,7 @@ const ReportsData = (props: ReportsDataProps) => {
 						<thead className={style.ReportsTableHeading}>
 							<tr>
 								<th className={style.ReportsTableRowFirst}>Date</th>
-								<th>{props.type}</th>
+								<th>{props.type === 'Gateway' ? 'Project' : 'Gateway'}</th>
 								<th>Transaction ID</th>
 								<th className={style.ReportsTableRowLast}>Amount</th>
 							</tr>
