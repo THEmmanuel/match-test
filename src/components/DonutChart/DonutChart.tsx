@@ -18,9 +18,15 @@ const DonutChart = (props: any) => {
 
 	const data = props.data
 
-	const idArray = Object.keys(data);
-	const amountArray = [];
-	const nameArray = [...idArray]
+	const idArray: string[] = Object.keys(data);
+	const amountArray: number[] = [];
+	const nameArray: string[] = idArray.map((id: string) => {
+		return (
+			props.type === 'Gateway' ? getGatewayName(id, gateways) : getProjectName(id, projects)
+		)
+	})
+
+
 
 	for (let key of idArray) {
 		let sum = 0;
@@ -37,19 +43,19 @@ const DonutChart = (props: any) => {
 
 	const options = {
 		plugins: {
-			doughnutlabel: 
+			doughnutlabel:
 			{
 				labels: {
-				render: 'percentage',
-				fontColor: ['green', 'white', 'red'],
-				precision: 2
-			}
+					render: 'percentage',
+					fontColor: ['green', 'white', 'red'],
+					precision: 2
+				}
 			}
 		},
 	};
 
 	const chartData = {
-		labels: [...idArray],
+		labels: [...nameArray],
 		datasets: [
 			{
 				label: 'Amount',
