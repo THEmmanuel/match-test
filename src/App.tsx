@@ -45,8 +45,12 @@ function App() {
 
 				<div className="PageWrapper">
 					<SideBar />
-					<ReportsPage />
+					<div className="Pages">
+						<ReportsPage />
+					<footer>Terms&Conditions | Privacy policy</footer>
+					</div>
 				</div>
+
 			</dataContext.Provider>
 		</div>
 	);
