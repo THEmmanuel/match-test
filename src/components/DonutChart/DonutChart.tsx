@@ -26,8 +26,6 @@ const DonutChart = (props: any) => {
 		)
 	})
 
-
-
 	for (let key of idArray) {
 		let sum = 0;
 		for (let obj of data[key]) {
@@ -85,7 +83,9 @@ const DonutChart = (props: any) => {
 	return (
 		<div className={style.DonutChartWrapper}>
 			<div className={style.DonutChartContainer}>
-				<Doughnut data={chartData} />
+				<Doughnut data={chartData} 
+				// options = {options}
+				/>
 			</div>
 
 			<span className={style.amountSum}>Total : {formatNumber(totalAmount)} USD</span>
