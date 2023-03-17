@@ -33,19 +33,39 @@ const ReportsPage = () => {
 
 	const [selectedProject, setSelectedProject] = useState('')
 	const [selectedGateway, setSelectedGateway] = useState('')
-	const [toDate, setToDate] = useState('')
-	const [fromDate, setFromDate] = useState('')
+	const [toDate, setToDate] = useState('');
+	const [fromDate, setFromDate] = useState('');
+	const [dateIsValid, setDateIsValid] = useState(true)
+
+	const checkDates = (toDate: string, fromDate: string) => {
+		const updatedToDate = new Date(toDate);
+		const updatedFromDate = new Date(fromDate);
+
+		if (updatedFromDate > updatedToDate && updatedToDate < updatedFromDate) {
+			alert('Error: "from" date is more recent than "to" date');
+			setDateIsValid(false)
+		} else {
+			console.log('Valid: "to" date is more recent than "from" date');
+			setDateIsValid(true)
+		}
+	}
 
 	const getReports = () => {
-		axios.post(`${API_URL}/report`, {
-			from: fromDate,
-			to: toDate,
-			projectId: selectedProject,
-			gatewayId: selectedGateway
-		}).then(
-			res => setReports(res.data.data)
-		).catch(err => err)
-		setShowReports(true)
+		checkDates(toDate, fromDate)
+		if (dateIsValid) {
+			axios.post(`${API_URL}/report`, {
+				from: fromDate,
+				to: toDate,
+				projectId: selectedProject,
+				gatewayId: selectedGateway
+			}).then(
+				res => setReports(res.data.data)
+			).catch(err => err)
+			setShowReports(true)
+		}
+		else {
+			return 'Date is invalid'
+		}
 	}
 
 
@@ -105,13 +125,13 @@ const ReportsPage = () => {
 					<Datepicker
 						placeholderText='To date'
 						onSelect={handleToDateChange}
-						min = '2021-01-01'
+						min='2021-01-01'
 					/>
 
 					<Datepicker
 						placeholderText='From date'
 						onSelect={handleFromDateChange}
-						min = '2021-01-01'
+						min='2021-01-01'
 					/>
 
 					<button
