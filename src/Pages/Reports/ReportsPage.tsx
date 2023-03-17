@@ -105,11 +105,13 @@ const ReportsPage = () => {
 					<Datepicker
 						placeholderText='To date'
 						onSelect={handleToDateChange}
+						min = '2021-01-01'
 					/>
 
 					<Datepicker
 						placeholderText='From date'
 						onSelect={handleFromDateChange}
+						min = '2021-01-01'
 					/>
 
 					<button

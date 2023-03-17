@@ -21,6 +21,8 @@ const Datepicker = (props: any) => {
 				dateFormat="yyyy-MM-dd"
 				placeholderText={props.placeholderText}
 				className={style.customDatepicker}
+				minDate = {new Date(props.min)}
+				maxDate = {new Date()}
 			/>
 
 			{/* {selectedDate && (
