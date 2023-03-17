@@ -1,10 +1,28 @@
-.Dropdown{
+/* .Dropdown {
 	background-color: #1BC5BD;
-	color: #FFFFFF; 
+	color: #FFFFFF;
 	border: none;
 	border-radius: 5px;
 	height: -webkit-fit-content;
 	height: -moz-fit-content;
 	height: fit-content;
 	padding: 10px 15px 10px 10px;
+	appearance: none;
+
+} */
+
+.Dropdown {
+	background: url('../../assets/dropdownIcon.svg');
+	max-height: 35px;
+	background-repeat: no-repeat;
+	background-position: right 10px center;
+	padding: 10px 40px 10px 10px;
+	/* Adjust the padding to make space for the icon */
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	border: none;
+	border-radius: 5px;
+	background-color: #1BC5BD;
+	color: #FFFFFF;
 }
